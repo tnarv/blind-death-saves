@@ -66,7 +66,9 @@ Hooks.on("preCreateChatMessage", (msg, options, userId) => {
 
 // Remove death save counters from character sheet (only for Players)
 Hooks.on("renderActorSheet", async function (app, html, data) {
-  if (game.settings.get("blind-death-saves", "mode") === "blind" && !game.user.isGM || !data.owner) {
+    if (game.settings.get("blind-death-saves", "mode") === "blind" && !game.user.isGM || !data.owner) {
+        console.log(app);
+        console.log(html);
     if (app.options.classes.includes("tidy5e")) {
       let tidyDeathSaveIconSuccess = $(html).find(
         "div.death-saves > div > i.fas.fa-check"
